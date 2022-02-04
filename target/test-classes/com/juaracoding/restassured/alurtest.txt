@@ -1,0 +1,88 @@
+per step nya:
+1.Test01_POST
+2.Test02_1_GET
+3.Test02_2_PATCH
+4.Test03_PUT
+5.Test06_DELETE
+
+penjelasan:
+1.	Tambahakan depedency pada pom tetng sebagai framework testin class,rest-assured sebagai alat untuk melakukan pengetesan testing dan validasi api pada framework java dan ini merupakan depedncey utama untuk test api nya,simple json untuk convert data api menjadi format data json
+2.	Menyiapkan metode post untuk membuat user baru berdasarkan format json :
+
+User: {"id": "integer", "name": "string", "email": "string", "gender": string, "status": inactive}
+
+dengan class testing api post sebagai berikut:
+ 
+
+lalu data berhasil di post dan kita bisa lihat di postman dengan metode get pada tahap selanjutnya
+
+3.	Menyiapkan metode get untuk mengecek seluruh data json yang telah di post sebelumnya untuk melihat detail user baru berdasarkan format json dengan class berikut :
+ 
+
+assert equals “.body("data.id[0]", equalTo(4165));” terutama nomor 4165 disesuaikan dengan id post yang baru kita buat yaitu pada data pertama. Kalua di postman seperti ini:
+ 
+kalau di konsol metode get seperti ini:
+ 
+dapat dilihat bahwa id data pertama atau .body("data.id[0]", equalTo(4165)); berupa id 4165.jadi assert disini emang harus selalu disesuaikan terus tiap post user nya karna tiap data berubah id nya.
+4.	Menyiapkan metode patch untuk melihat detail user baru berdasarkan format json dengan class berikut :
+
+
+ 
+
+dengan .patch("https://gorest.co.in/public/v1/users/4165")  pada line 29 disesuaikan lagi id data yang baru saja di post/dibuat.contoh kasus ini data yang baru dibuat dengan id 4165 sehingga untuk mengetahui detail user yang baru dibuat dengan menulisakan .patch("https://gorest.co.in/public/v1/users/4165
+
+sehingga didapat pada console sebagai berikut:
+ 
+atau kalau di postman sebagai berikut:
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5.	Menyiapkan metode put untuk update/edit user baru berdasarkan format json dengan class metode put sebagai berikut:
+disini kita ingin update/edit data dengan kondisi {"gender": string, "status": "active"} atau gender jadi kebalikan kelamin pada di metode post dan status inactive jadi active
+
+ 
+
+.put("https://gorest.co.in/public/v1/users/4165")  pada line 29 terutama pada angka 4165 harus disesuaikan terhadapt user data yang baru saja dibuat seperti yang telah dijelaskan pada tahap sebelumnya
+
+sehingga dapat menjadi berikut:
+ 
+atau kalua di postman seperti berikut:
+ 
+6.	Menyiapkan metode delete untuk delete user baru berdasarkan format json dengan class metode put sebagai berikut:
+
+ 
+
+.delete("https://gorest.co.in/public/v1/users/4165")  pada line 25 terutama pada angka 4165 harus disesuaikan terhadapt user data yang baru saja dibuat seperti yang telah dijelaskan pada tahap sebelumnya untuk melakukan delete user terbaru sehingga
+  pada metode delete class:
+ 
+
+Pada postman:
+ 
+id 4165 terhapus
+
+dengan metode get data id pertama menjadi 3883 berrati id user 4165 sudah terhapus:
+ 
+7.	Berikut link github running test nya:
+git hub: https://github.com/vertix1231/-ujian_axiata_halaman7
