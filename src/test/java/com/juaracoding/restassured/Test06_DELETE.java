@@ -2,6 +2,7 @@ package com.juaracoding.restassured;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
@@ -10,7 +11,7 @@ import io.restassured.http.ContentType;
 
 public class Test06_DELETE {
 	@Test
-	public void test04_delete() {
+	public void test04_delete(int iduser,String inputnama) {
 		JSONObject request = new JSONObject();
 
 //		request.put("name", "Chika");
@@ -22,7 +23,7 @@ public class Test06_DELETE {
 		.accept(ContentType.JSON)
 		.body(request.toJSONString())
 		.when()
-		.delete("https://gorest.co.in/public/v1/users/4165") // DELETE
+		.delete("https://gorest.co.in/public/v1/users/"+String.valueOf(iduser)) // DELETE
 		.then()
 		.statusCode(204)
 		.log().all();

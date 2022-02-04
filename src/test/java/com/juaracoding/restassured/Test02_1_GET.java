@@ -36,13 +36,13 @@ public class Test02_1_GET {
 	}
 	
 	@Test
-	public void test_02() {
+	public void test_02(int iduser) {
 		
 		given()
 		.auth().oauth2("864ba7fd66f0e86658fee3c51809f945696f9d20f07482e6f69a7f4dd4614c26")
 		.get(endpoint)
 		.then()
 		.statusCode(200)
-		.body("data.id[0]", equalTo(4165));
+		.body("data.id[0]", equalTo(iduser));
 	}
 }

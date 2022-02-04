@@ -1,6 +1,7 @@
 package com.juaracoding.restassured;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
@@ -9,7 +10,7 @@ import io.restassured.http.ContentType;
 
 public class Test03_PUT {
 	@Test
-	public void test02_put() {
+	public void test02_put(int iduser,String inputnama) {
 		
 		JSONObject request = new JSONObject();
 		
@@ -26,9 +27,10 @@ public class Test03_PUT {
 		.accept(ContentType.JSON)
 		.body(request.toJSONString())
 		.when()
-		.put("https://gorest.co.in/public/v1/users/4165") //PUT
+		.put("https://gorest.co.in/public/v1/users/"+String.valueOf(iduser)) //PUT
 		.then()
 		.statusCode(200)
+		.body("data.name", equalTo(inputnama))
 		.log().all();
 	}
 }

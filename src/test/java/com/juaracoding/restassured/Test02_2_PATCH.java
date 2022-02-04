@@ -1,6 +1,7 @@
 package com.juaracoding.restassured;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
@@ -8,8 +9,9 @@ import org.testng.annotations.Test;
 import io.restassured.http.ContentType;
 
 public class Test02_2_PATCH {
+	String endpoint = "https://gorest.co.in/public/v1/users/";
 	@Test
-	public void test03_patch() {
+	public void test03_patch(int iduser,String name) {
 		
 		JSONObject request = new JSONObject();
 		
@@ -26,9 +28,11 @@ public class Test02_2_PATCH {
 		.accept(ContentType.JSON)
 		.body(request.toJSONString())
 		.when()
-		.patch("https://gorest.co.in/public/v1/users/4165") //PATCH
+		.patch("https://gorest.co.in/public/v1/users/"+String.valueOf(iduser)) //PATCH
 		.then()
 		.statusCode(200)
+		.body("data.name", equalTo(name))
 		.log().all();
 	}
+
 }

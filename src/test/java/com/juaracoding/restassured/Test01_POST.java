@@ -18,8 +18,8 @@ public class Test01_POST {
 		JSONObject request = new JSONObject();
 		
 		request.put("id", "2");
-		request.put("name", "andreX");
-		request.put("email", "andreX@gmail.com");
+		request.put("name", "andreXdua");
+		request.put("email", "andreXdua@gmail.com");
 		request.put("gender", "male");
 		request.put("status", "inactive");
 		
