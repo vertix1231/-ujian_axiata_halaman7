@@ -8,7 +8,11 @@ import org.testng.annotations.Test;
 import io.restassured.http.ContentType;
 
 public class MainTest_CRUD {
-
+	private Test01_POST test01_POST;
+	private Test02_1_GET test02_1_GET;
+	private Test02_2_PATCH test02_2_PATCH;
+	private Test03_PUT test03_PUT;
+	private Test06_DELETE test06_DELETE;
 	/*
 	 * https://reqres.in/
 	 * https://www.youtube.com/watch?v=mkIliGAePBM&ab_channel=AutomationStepbyStep
@@ -20,8 +24,8 @@ public class MainTest_CRUD {
 		JSONObject request = new JSONObject();
 		
 		request.put("id", "2");
-		request.put("name", "andreX");
-		request.put("email", "andreX@gmail.com");
+		request.put("name", "mafia123");
+		request.put("email", "mafia123@gmail.com");
 		request.put("gender", "male");
 		request.put("status", "inactive");
 		
