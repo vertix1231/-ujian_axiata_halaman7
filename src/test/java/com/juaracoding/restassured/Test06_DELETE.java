@@ -22,7 +22,7 @@ public class Test06_DELETE {
 		.accept(ContentType.JSON)
 		.body(request.toJSONString())
 		.when()
-		.delete("https://gorest.co.in/public/v1/users/5672") // DELETE
+		.delete("https://gorest.co.in/public/v1/users/4165") // DELETE
 		.then()
 		.statusCode(204)
 		.log().all();

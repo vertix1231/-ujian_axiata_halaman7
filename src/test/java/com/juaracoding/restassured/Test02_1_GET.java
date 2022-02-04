@@ -10,14 +10,14 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class Test01_GET {
+public class Test02_1_GET {
 //	864ba7fd66f0e86658fee3c51809f945696f9d20f07482e6f69a7f4dd4614c26
 	/*
 	 * https://www.youtube.com/watch?v=JJ7Tp7_fX4c&ab_channel=AutomationStepbyStep
 	 */
 	
 //	String endpoint = "https://reqres.in/api/user?page=1";
-	String endpoint = "https://gorest.co.in/public/v1/users";
+	String endpoint = "https://gorest.co.in/public/v1/users/";
 	
 	@Test
 	public void test_01() {
@@ -43,6 +43,6 @@ public class Test01_GET {
 		.get(endpoint)
 		.then()
 		.statusCode(200)
-		.body("data.id[0]", equalTo(5672));
+		.body("data.id[0]", equalTo(4165));
 	}
 }

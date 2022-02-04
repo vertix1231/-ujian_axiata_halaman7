@@ -1,13 +1,16 @@
 package com.juaracoding.restassured;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 
 import org.json.simple.JSONObject;
 import org.testng.annotations.Test;
 
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 
-public class Test04_POST {
+public class Test01_POST {
 
 	@Test
 	public void test01_post() {
@@ -34,6 +37,8 @@ public class Test04_POST {
 		.then()
 		.statusCode(201)
 		.log().all();
-
+		
+		
+//		assertEquals(given().auth().oauth2("864ba7fd66f0e86658fee3c51809f945696f9d20f07482e6f69a7f4dd4614c26").sta, 200);
 	}
 }

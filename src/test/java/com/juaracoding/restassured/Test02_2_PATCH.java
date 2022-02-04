@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.http.ContentType;
 
-public class Test05_PATCH {
+public class Test02_2_PATCH {
 	@Test
 	public void test03_patch() {
 		
@@ -26,7 +26,7 @@ public class Test05_PATCH {
 		.accept(ContentType.JSON)
 		.body(request.toJSONString())
 		.when()
-		.patch("https://gorest.co.in/public/v1/users/5672") //PATCH
+		.patch("https://gorest.co.in/public/v1/users/4165") //PATCH
 		.then()
 		.statusCode(200)
 		.log().all();

@@ -26,7 +26,7 @@ public class Test03_PUT {
 		.accept(ContentType.JSON)
 		.body(request.toJSONString())
 		.when()
-		.put("https://gorest.co.in/public/v1/users/5672") //PUT
+		.put("https://gorest.co.in/public/v1/users/4165") //PUT
 		.then()
 		.statusCode(200)
 		.log().all();
